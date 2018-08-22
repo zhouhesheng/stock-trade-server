@@ -23,7 +23,7 @@ curl -i -X POST \
     "order_type": "buy",
     "price": 100,
     "amount": 100
-}' http://192.168.33.10:8000/trade.do
+}' http://127.0.0.1:5000/trade.do
 ```
 
 - 撤销订单
@@ -33,7 +33,7 @@ $ curl -i -X POST \
     -d '{
     "symbol": "WSCN",
     "order_id": 1000
-}' http://192.168.33.10:8000/cancel_order.do
+}' http://127.0.0.1:5000/cancel_order.do
 ```
 
 **其他**：
@@ -61,7 +61,7 @@ vi config.py
 ```
 >>> python manager.py db init
 >>> python manager.py db migrate -m "init"
->>> python manager.py upgrade
+>>> python manager.py db upgrade
 ```
 
 运行
@@ -79,8 +79,8 @@ python manager.py shell
 数据库升级
 
 ```
-python manage.py db migrate
-python manage.py db upgrade
+python manager.py db migrate
+python manager.py db upgrade
 ```
 
 运行队列任务
